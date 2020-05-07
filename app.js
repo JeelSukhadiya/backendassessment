@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 })); 
 app.use(express.json());       app.use(express.urlencoded());
-
-var server = app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+var server = app.listen(port, function () {
     console.log('Node server is running.. on port 3000');
 });
 app.set('view engine', 'ejs');
