@@ -1,0 +1,43 @@
+<html>
+<head> 
+    <link href="/assets/styling.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxwa0bPhoi-_ojP7YYXNhL857c9HZuCGM&libraries=places"></script>
+    <script type="text/javascript">
+        function noenter() {
+          return !(window.event && window.event.keyCode == 13); }
+        </script>
+</head>
+
+<body>
+<div class="container" style="width:400px; margin:0 auto;">
+    <h1> Backend assessment submission</h1>
+    <p>By Jeel Sukhadiya</p> 
+   <a href="hello"><button>Click for a get request to hello world.</button></a>
+    
+    
+    <form method ="POST" action="/calculate" >
+  
+      <label for="city1">Enter Origin City name</label>
+      <input type="text" id="city1" name="city1name" placeholder="Enter city1 name..."onKeyPress="return noenter()">
+  
+      <label for="city2">Enter Destination City name</label>
+      <input type="text" id="city2" name="city2name" placeholder="Enter city2 name..."onKeyPress="return noenter()">
+  
+      <input type="submit" value="Submit">
+  
+    </form>
+  </div>
+<script>
+
+function initialize() {
+
+  var input1 = document.getElementById('city1');
+  var input2 = document.getElementById('city2');
+
+  new google.maps.places.Autocomplete(input1);
+  new google.maps.places.Autocomplete(input2);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
